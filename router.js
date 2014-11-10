@@ -39,3 +39,5 @@ function mkdir_p(dir){
     var fs=require('fs');
     return fs.existsSync(dir);
 }
+
+//http://www.jb51.net/article/51901.htm
