@@ -14,7 +14,7 @@ http.createServer(function (req, res) {
     pathname = urlData.pathname;
     querystr = urlData.query;
 
-    console.log("Request for " + pathname + " received.");
+//    console.log("Request for " + pathname + " received.");
     res.writeHead(200,{"Content-Type":"text/plain"});
     res.write(router.route(pathname, querystr));
     res.end();
@@ -27,6 +27,15 @@ http.createServer(function (req, res) {
     res.write(info);
     res.end();
     */
+
+
+
+// 关闭nodejs 默认访问 favicon.ico
+//    if (!pathname.indexOf('/favicon.ico')) {
+//        return;
+//    };
+
+
 
 }).listen(8000, "127.0.0.1");
 console.log('Server running at http://127.0.0.1:8000/');

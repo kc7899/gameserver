@@ -3,7 +3,9 @@
  */
 
 
-function info_request(requeststring)
+function get_info_data(requeststring)
 {
-    return "Request";
+    return "Request get_info_data";
 }
+
+exports.get_info_data = get_info_data;
