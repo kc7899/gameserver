@@ -4,20 +4,13 @@
 
 var router = require("./router");
 var http = require('http');
-var url = require("url");
 var info = "通过HTTPGet方式成功加入队列";
+
+
 http.createServer(function (req, res) {
 
 
-    var pathname, querystr;
-    var urlData = url.parse(req.url);
-    pathname = urlData.pathname;
-    querystr = urlData.query;
-
-//    console.log("Request for " + pathname + " received.");
-    res.writeHead(200,{"Content-Type":"text/plain"});
-    res.write(router.route(pathname, querystr));
-    res.end();
+    router.route(req, res);
 
     /** get处理
     var params = url.parse(req.url, true).query;//解释url参数部分name=zzl&email=zzl@sina.com
@@ -37,7 +30,7 @@ http.createServer(function (req, res) {
 
 
 
-}).listen(8000, "127.0.0.1");
+}).listen(8000);
 console.log('Server running at http://127.0.0.1:8000/');
 
 //json

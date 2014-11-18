@@ -1,7 +1,7 @@
 /**
  * Created by Ben on 14/11/12.
  */
-
+var config = require("./config");
 var mysql = require('mysql');
 
 var conn = mysql.createConnection({
@@ -11,24 +11,28 @@ var conn = mysql.createConnection({
     password:'AdamGame123',
     port:3306
 });
-conn.connect();
+if(!config.debugmode)
+{
+    conn.connect();
+}
 
 
-function query(client,sqlstring,handler){
+
+exports.query = function(sqlstring,handler){
     conn.query(
 //        'select * from user_info'
         sqlstring,
         function(err,res,fields){
 
             if(err) {
-                console.log('查询错误!');
+                console.log('查询失败!');
                 throw error;
             }
 
-            console.log(res);
+            //console.log(res);
             handler(res);
         }
     );
 };
 
-exports.query = query;
+

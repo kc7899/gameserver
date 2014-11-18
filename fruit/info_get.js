@@ -3,9 +3,12 @@
  */
 
 
-function info_get_data(requeststring)
+var sqlhelper = require("../mysqlhelper");
+
+function info_get_data(querystr,res)
 {
-    return "Request get_info_data";
+    res.write(JSON.stringify({return:1}));
+    res.end();
 }
 
 exports.info_get_data = info_get_data;

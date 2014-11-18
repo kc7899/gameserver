@@ -2,9 +2,13 @@
  * Created by Ben on 14/11/12.
  */
 
-function info_set_data(requeststring)
+var sqlhelper = require("../mysqlhelper");
+
+function info_set_data(querystr,res)
 {
-    return "Request get_info_data";
+
+    res.write(JSON.stringify({return:1}));
+    res.end();
 }
 
 exports.info_set_data = info_set_data;
