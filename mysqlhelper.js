@@ -14,19 +14,11 @@ var conn = mysql.createConnection({
 conn.connect();
 
 
-function query(client,sqlstring,handler){
+function query(client){
     conn.query(
-//        'select * from user_info'
-        sqlstring,
+        'select * from user_info',
         function(err,res,fields){
-
-            if(err) {
-                console.log('查询错误!');
-                throw error;
-            }
-
             console.log(res);
-            handler(res);
         }
     );
 };
